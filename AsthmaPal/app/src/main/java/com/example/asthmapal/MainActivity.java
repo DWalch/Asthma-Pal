@@ -22,20 +22,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mBtLaunchActivity = (Button) findViewById(R.id.nextButton1);
-
-        mBtLaunchActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                launchActivity();
     }
 
-    private void launchActivity() {
-                Intent intent = new Intent(this, LoginScreen.class);
-                startActivity(intent);
-            }
-        }
+    public void goToActivity(View view)
+    {
+        Intent intent = new Intent(this, AddPhsyicianInfo.class);
+        startActivity(intent);
     }
 }
