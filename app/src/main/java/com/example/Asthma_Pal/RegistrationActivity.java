@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegistrationActivity extends AppCompatActivity {
 
+    //Initialize key variables
     private EditText Email, Password, ConPassword;
     private Button Register;
     private TextView Return;
@@ -28,21 +29,28 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
+        //Assign database
         UserAuth = FirebaseAuth.getInstance();
 
+        //Assign key variables to views within activity
         Password = findViewById(R.id.etPassword);
         ConPassword = findViewById(R.id.etConfirmPassword);
         Email = findViewById(R.id.etEmail);
         Register = findViewById(R.id.btnRegister);
         Return = findViewById(R.id.tvReturntoMenu);
 
+        //Listen for a click on the register button
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Make sure that fields are all utilized and passwords match by calling validate
                 if(validate()){
+                    //Remove spaces from information
                    String userPass = Password.getText().toString().trim();
                    String userEmail = Email.getText().toString().trim();
 
+                   //Add new user to the database
                    UserAuth.createUserWithEmailAndPassword(userEmail, userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                        @Override
                        public void onComplete(@NonNull Task<AuthResult> task) {
@@ -60,6 +68,7 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
+        //On click listener on text to allow the user to return to login
         Return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
