@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "651936834812",
+    "firebase_url": "https://asthma-pal.firebaseio.com",
+    "project_id": "asthma-pal",
+    "storage_bucket": "asthma-pal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651936834812:android:c12db8ba06d35cff572379",
+        "android_client_info": {
+          "package_name": "com.example.Asthma_Pal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651936834812-slbpp05q24035obcrp6ig9h6o8o9teio.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBB0qlogHMZyjX3rmOEDr2XUHDZbqzxTTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651936834812-slbpp05q24035obcrp6ig9h6o8o9teio.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
