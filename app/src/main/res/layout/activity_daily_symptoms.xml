@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DailySymptomsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Have you had any of these symptoms today?"
+                android:textSize="50sp" />
+
+            <TextView
+                android:id="@+id/tvCough"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Cough"
+                android:textSize="30sp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chgCoughAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="100sp"
+                app:chipSpacingHorizontal="113sp"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chCoughYes"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="62sp"
+                    android:text="Yes"
+                    app:chipBackgroundColor="@drawable/chip_selection"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    app:chipStrokeWidth="1sp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chCoughNo"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60sp"
+                    android:text="No"
+                    app:chipBackgroundColor="@drawable/chip_selection"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    app:chipStrokeWidth="1sp" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                android:id="@+id/tvWheeze"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Wheeze"
+                android:textSize="30sp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chgWheezeAnswer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="100sp"
+                app:chipSpacingHorizontal="113sp"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chWheezeYes"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="62sp"
+                    android:text="Yes"
+                    app:chipBackgroundColor="@drawable/chip_selection"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    app:chipStrokeWidth="1sp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chWheezeNo"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60sp"
+                    android:text="No"
+                    app:chipBackgroundColor="@drawable/chip_selection"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    app:chipStrokeWidth="1sp" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                android:id="@+id/tvChestTightness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Chest Tightness"
+                android:textSize="30sp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chgTightChestAnswer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="100sp"
+                app:chipSpacingHorizontal="113sp"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chChestTightYes"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="62sp"
+                    android:text="Yes"
+                    app:chipBackgroundColor="@drawable/chip_selection"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    app:chipStrokeWidth="1sp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chChestTightNo"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60sp"
+                    android:text="No"
+                    app:chipBackgroundColor="@drawable/chip_selection"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    app:chipStrokeWidth="1sp" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                android:id="@+id/tvSleep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Woken from sleep by above symptoms"
+                android:textSize="30sp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chgSleepAnswer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="100sp"
+                app:chipSpacingHorizontal="113sp"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chSleepYes"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="62sp"
+                    android:text="Yes"
+                    app:chipBackgroundColor="@drawable/chip_selection"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    app:chipStrokeWidth="1sp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chSleepNo"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60sp"
+                    android:text="No"
+                    app:chipBackgroundColor="@drawable/chip_selection"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    app:chipStrokeWidth="1sp" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                android:id="@+id/tvStopExercise"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stopped from exercising"
+                android:gravity="center"
+                android:textSize="30sp"/>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chgStopExcerAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="100sp"
+                app:chipSpacingHorizontal="113sp"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chStopExcerYes"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="62sp"
+                    android:text="Yes"
+                    app:chipBackgroundColor="@drawable/chip_selection"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    app:chipStrokeWidth="1sp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chStopExcerNo"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60sp"
+                    android:text="No"
+                    app:chipBackgroundColor="@drawable/chip_selection"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    app:chipStrokeWidth="1sp" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:text="Rescue medication needed" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chgRescueMed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="100sp"
+                app:chipSpacingHorizontal="113sp"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chRescueMedYes"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="62sp"
+                    android:text="Yes"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    app:chipStrokeWidth="1sp"
+                    app:chipBackgroundColor="@drawable/chip_selection" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chRescueMedNo"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60sp"
+                    android:text="No"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    app:chipBackgroundColor="@drawable/chip_selection"
+                    app:chipStrokeWidth="1sp" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Save Daily Entry" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
