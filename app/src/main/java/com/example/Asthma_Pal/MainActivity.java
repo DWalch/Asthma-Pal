@@ -2,14 +2,16 @@ package com.example.Asthma_Pal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public abstract class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private Button Logout, PersonalInformation, Journal, Chart, Medication, Settings;
+    public static Activity RA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +19,7 @@ public abstract class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_page);
 
         //create variables for all of the buttons to use with onclick listeners
+        RA = this;
         Logout = (Button)findViewById(R.id.btnLogOut);
         PersonalInformation = (Button)findViewById(R.id.btnViewInformation);
         Journal = (Button)findViewById(R.id.btnViewJournal);
@@ -43,6 +46,7 @@ public abstract class MainActivity extends AppCompatActivity {
             }
         });
 */
+
         //on click listener for user to go to their journal entries
         Journal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +81,7 @@ public abstract class MainActivity extends AppCompatActivity {
                 Intent setting = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(setting);
             }
-        });
+        }); 
     }
 
 }
