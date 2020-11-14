@@ -36,16 +36,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(logout);
             }
         });
-/*
+
         //on click listener for user to go to their personal information page
         PersonalInformation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent personalInfo = new Intent(MainActivity.this, LoginActivity.class);
+                Intent personalInfo = new Intent(MainActivity.this, InformationActivity.class);
                 startActivity(personalInfo);
             }
         });
-*/
+
 
         //on click listener for user to go to their journal entries
         Journal.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent setting = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(setting);
             }
-        }); 
+        });
     }
 
 }
