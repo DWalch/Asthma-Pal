@@ -2,6 +2,7 @@ package com.example.Asthma_Pal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,7 @@ public class DailySymptomsActivity extends AppCompatActivity {
         sleep = findViewById(R.id.chgTightChestAnswer);
         exercise = findViewById(R.id.chgStopExcerAnswer);
         meds = findViewById(R.id.chgRescueMed);
+        submit = findViewById(R.id.btnSubmit);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +52,12 @@ public class DailySymptomsActivity extends AppCompatActivity {
                 }
                 else{
                     //Need to figure out how to save entries
+
+
+                    Intent intent = new Intent(DailySymptomsActivity.this, DailyEntryActivity.class);
+                    DailyEntryActivity.DA.finish();
+                    startActivity(intent);
+                    finish();
                 }
             }
         });

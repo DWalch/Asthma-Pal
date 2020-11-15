@@ -177,9 +177,9 @@
                 android:id="@+id/tvStopExercise"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Stopped from exercising"
                 android:gravity="center"
-                android:textSize="30sp"/>
+                android:text="Stopped from exercising"
+                android:textSize="30sp" />
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chgStopExcerAnswer"
@@ -214,9 +214,9 @@
                 android:id="@+id/textView9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="30sp"
                 android:gravity="center"
-                android:text="Rescue medication needed" />
+                android:text="Rescue medication needed"
+                android:textSize="30sp" />
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chgRescueMed"
@@ -232,9 +232,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="62sp"
                     android:text="Yes"
+                    app:chipBackgroundColor="@drawable/chip_selection"
                     app:chipStrokeColor="@color/colorPrimary"
-                    app:chipStrokeWidth="1sp"
-                    app:chipBackgroundColor="@drawable/chip_selection" />
+                    app:chipStrokeWidth="1sp" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chRescueMedNo"
@@ -242,8 +242,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="60sp"
                     android:text="No"
-                    app:chipStrokeColor="@color/colorPrimary"
                     app:chipBackgroundColor="@drawable/chip_selection"
+                    app:chipStrokeColor="@color/colorPrimary"
                     app:chipStrokeWidth="1sp" />
             </com.google.android.material.chip.ChipGroup>
 
