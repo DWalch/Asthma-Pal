@@ -14,4 +14,15 @@
         android:textSize="24sp"
         tools:layout_editor_absoluteX="54dp"
         tools:layout_editor_absoluteY="75dp" />
+
+    <Button
+        android:id="@+id/btnAddPhys"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="28dp"
+        android:text="Add Physician"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
