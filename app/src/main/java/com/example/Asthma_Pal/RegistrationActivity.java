@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -27,12 +28,14 @@ import java.io.IOException;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    private EditText Email, Password, ConPassword, FirstName, LastName;
+    private EditText Email, Password, ConPassword, FirstName, LastName, Phone;
     private Button Register;
     private TextView Return;
     private FirebaseAuth UserAuth;
     private String filename = "PersonalInformation";
     private Spinner spinner;
+    private SharedPreferences mPreferences;
+    private String sharedPrefFile = "com.example.Asthma_Pal.sharedPreferences";
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -43,6 +46,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
         UserAuth = FirebaseAuth.getInstance();
 
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+
         Password = findViewById(R.id.etPassword);
         ConPassword = findViewById(R.id.etConfirmPassword);
         Email = findViewById(R.id.etEmail);
@@ -51,6 +56,7 @@ public class RegistrationActivity extends AppCompatActivity {
         spinner = findViewById(R.id.countrySelection);
         FirstName = findViewById(R.id.etFirstName);
         LastName = findViewById(R.id.etLastName);
+        Phone = findViewById(R.id.etPhone);
 
 
         Register.setOnClickListener(new View.OnClickListener() {
@@ -61,19 +67,13 @@ public class RegistrationActivity extends AppCompatActivity {
                    String userEmail = Email.getText().toString().trim();
                    String userName = FirstName.getText().toString().trim();
                    String userLast = LastName.getText().toString().trim();
+                   String userPhone = Phone.getText().toString().trim();
                    String country = spinner.getSelectedItem().toString();
-                   byte[] b = userName.getBytes();
-                   byte[] c = userLast.getBytes();
-                   byte[] d = country.getBytes();
-                    try(FileOutputStream fos = getApplicationContext().openFileOutput(filename, Context.MODE_PRIVATE)){
-                        fos.write(b);
-                        fos.write(c);
-                        fos.write(d);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                   mPreferences.edit().putString("com.example.Asthma_Pal.FirstName", userName).apply();
+                   mPreferences.edit().putString("com.example.Asthma_Pal.LastName", userLast).apply();
+                   mPreferences.edit().putString("com.example.Asthma_Pal.Email", userEmail).apply();
+                   mPreferences.edit().putString("com.example.Asthma_Pal.Country", country).apply();
+                   mPreferences.edit().putString("com.example.Asthma_Pal.Phone", userPhone);
 
                    UserAuth.createUserWithEmailAndPassword(userEmail, userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                        @Override
