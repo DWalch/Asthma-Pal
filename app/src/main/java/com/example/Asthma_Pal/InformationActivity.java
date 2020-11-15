@@ -38,19 +38,23 @@ public class InformationActivity extends AppCompatActivity {
             StringBuilder stringBuilder = new StringBuilder();
             try (BufferedReader reader = new BufferedReader(inputStreamReader)){
                 String line = reader.readLine();
-                textView2.setText(line);
+                String lines = line.toString();
+                textView2.setText(lines);
                 line = reader.readLine();
+                lines = line.toString();
                 textView3.setText(line);
                 line = reader.readLine();
+                lines = line.toString();
                 textView1.setText(line);
+
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            finally {
+            //finally {
                 //String contents = stringBuilder.toString();
-                //textView.setText(contents);
-            }
+                //textView1.setText(lines);
+            //}
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
