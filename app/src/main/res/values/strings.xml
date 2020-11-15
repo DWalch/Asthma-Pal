@@ -9,6 +9,7 @@
     <string name="Phone_num">Phone Number</string>
 
     <string-array name="country_array">
+        <item>Country</item>
         <item>Azerbaijan</item>
         <item>Bermuda</item>
         <item>Canada</item>

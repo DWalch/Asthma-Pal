@@ -45,43 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(personalInfo);
             }
         });
-
-
-        //on click listener for user to go to their journal entries
-        Journal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent journal = new Intent(MainActivity.this, JournalActivity.class);
-                startActivity(journal);
-            }
-        });
-
-        //on click listener for user to go view their peak flow chart
-        Chart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent chart = new Intent(MainActivity.this, ChartActivity.class);
-                startActivity(chart);
-            }
-        });
-/*
-        //onclick listener for user to go to their medication page
-        Medication.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent meds = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(meds);
-            }
-        });
-*/
-        //onclick listener for users to adjust settings
-        Settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent setting = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(setting);
-            }
-        });
     }
 
 }
