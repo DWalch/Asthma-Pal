@@ -65,12 +65,10 @@ public class DailySymptomsActivity extends AppCompatActivity {
                 }
                 else{
                     strDate = sdf.format(new Date().getTime());
-                    Toast.makeText(DailySymptomsActivity.this, strDate, Toast.LENGTH_SHORT).show();
                     addData(strDate, strcoughsel, strwheezesel, strchestsel, strsleepsel, strexercisesel, strmedssel);
                     Intent intent = new Intent(DailySymptomsActivity.this, JournalHistoryActivity.class);
                     startActivity(intent);
                     finish();
-                    Toast.makeText(DailySymptomsActivity.this,strDate +" , "+ strcoughsel+" , "+ strwheezesel+" , "+ strchestsel+" , "+ strsleepsel+" , "+  strexercisesel+" , "+  strmedssel , Toast.LENGTH_SHORT).show();
                 }
             }
         });
