@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -74,12 +73,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             super(itemView);
             parentLayout = itemView.findViewById(R.id.parentLayout);
             Tdate = itemView.findViewById(R.id.tvDate);
-            Tcough =itemView.findViewById(R.id.tvCough);
-            Twheeze = itemView.findViewById(R.id.tvWheeze);
-            Tchest = itemView.findViewById(R.id.tvChest);
-            Tsleep = itemView.findViewById(R.id.tvSleep);
-            Texercise = itemView.findViewById(R.id.tvExercise);
-            Tmeds = itemView.findViewById(R.id.tvMeds);
+            Tcough =itemView.findViewById(R.id.tvCoughing);
+            Twheeze = itemView.findViewById(R.id.tvWheezing);
+            Tchest = itemView.findViewById(R.id.tvTightChested);
+            Tsleep = itemView.findViewById(R.id.tvSleepIssues);
+            Texercise = itemView.findViewById(R.id.tvStoppedExercising);
+            Tmeds = itemView.findViewById(R.id.tvUsedMeds);
         }
     }
 }

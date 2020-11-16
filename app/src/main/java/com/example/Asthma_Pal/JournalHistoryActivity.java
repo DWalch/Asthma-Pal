@@ -77,6 +77,8 @@ public class JournalHistoryActivity extends AppCompatActivity {
                 JournalEntry entry = new JournalEntry(mDate.get(i),mCough.get(i),mWheeze.get(i),mChest.get(i),mSleep.get(i), mExercise.get(i), mMeds.get(i));
                 logs.add(entry);
             }
+
+            populateList();
         }
 
 
