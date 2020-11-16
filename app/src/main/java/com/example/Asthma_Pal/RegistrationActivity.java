@@ -67,13 +67,13 @@ public class RegistrationActivity extends AppCompatActivity {
                    String userEmail = Email.getText().toString().trim();
                    String userName = FirstName.getText().toString().trim();
                    String userLast = LastName.getText().toString().trim();
-                   String userPhone = Phone.getText().toString().trim();
+                   int userPhone = Integer.parseInt(Phone.getText().toString().trim());
                    String country = spinner.getSelectedItem().toString();
                    mPreferences.edit().putString("com.example.Asthma_Pal.FirstName", userName).apply();
                    mPreferences.edit().putString("com.example.Asthma_Pal.LastName", userLast).apply();
                    mPreferences.edit().putString("com.example.Asthma_Pal.Email", userEmail).apply();
                    mPreferences.edit().putString("com.example.Asthma_Pal.Country", country).apply();
-                   mPreferences.edit().putString("com.example.Asthma_Pal.Phone", userPhone);
+                   mPreferences.edit().putInt("com.example.Asthma_Pal.Phone", userPhone);
 
                    UserAuth.createUserWithEmailAndPassword(userEmail, userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                        @Override

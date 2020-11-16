@@ -34,6 +34,8 @@ public class InformationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information);
 
+        int phonenum = 0;
+
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         physinfo = findViewById(R.id.btnPhysInfo);
         textViewCountry = findViewById(R.id.txtCountry);
@@ -42,10 +44,12 @@ public class InformationActivity extends AppCompatActivity {
         textViewPhone = findViewById(R.id.txtPhoneNumber);
         textViewEmail = findViewById(R.id.txtEmail);
 
+        
+        phonenum = mPreferences.getInt("com.example.Asthma_Pal.phone", 0);
         textViewCountry.setText(mPreferences.getString("com.example.Asthma_Pal.Country", defVal));
         textViewFirstName.setText(mPreferences.getString("com.example.Asthma_Pal.FirstName", defVal));
         textViewLastName.setText(mPreferences.getString("com.example.Asthma_Pal.LastName", defVal));
-        textViewPhone.setText(mPreferences.getString("com.example.Asthma_Pal.Phone", defVal));
+        textViewPhone.setText(phonenum);
         textViewEmail.setText(mPreferences.getString("com.example.Asthma_Pal.Email", defVal));
 /*
         physinfo.setOnClickListener(new View.OnClickListener() {
