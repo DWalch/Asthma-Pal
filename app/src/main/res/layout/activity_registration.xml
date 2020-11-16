@@ -68,6 +68,7 @@
         android:layout_marginTop="21dp"
         android:layout_marginBottom="91dp"
         android:ems="10"
+        android:hint="1234567890"
         android:inputType="phone"
         app:layout_constraintBottom_toTopOf="@+id/btnRegister"
         app:layout_constraintEnd_toEndOf="parent"
