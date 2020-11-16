@@ -80,6 +80,18 @@ public class ChartActivity extends AppCompatActivity {
             for (int i = 0; i < mDate.size(); i++) {
                 series.appendData(new DataPoint(mDate.get(i), mPeak.get(i)),true, 1000);
             }
+
+            graphview.addSeries(series);
+
+            if(mDate.size() <= 10) {
+                graphview.getViewport().setMaxX(mDate.get(mDate.size() - 1));
+                graphview.getViewport().setMinX(mDate.get(0));
+            }
+            else{
+                graphview.getViewport().setMaxX(mDate.get(mDate.size() - 1));
+                graphview.getViewport().setMinX(mDate.get(mDate.size() - 11));
+            }
+            graphview.getViewport().setXAxisBoundsManual(true);
         }
         init();
 
@@ -115,6 +127,7 @@ public class ChartActivity extends AppCompatActivity {
                     DataPoint data = new DataPoint(xdate, y);
                     series.appendData(data, true, 1000);
                     graphview.addSeries(series);
+                    graphview.getViewport().setMaxX(xdate);
                     addData(xdate, y);
                 }
                 else
@@ -125,7 +138,7 @@ public class ChartActivity extends AppCompatActivity {
 
     private void activateScroll() {
         // activate horizontal zooming and scrolling
-        //graphview.getViewport().setScalable(true);
+        graphview.getViewport().setScalable(true);
         // activate horizontal scrolling
         graphview.getViewport().setScrollable(true);
         // activate horizontal and vertical zooming and scrolling
