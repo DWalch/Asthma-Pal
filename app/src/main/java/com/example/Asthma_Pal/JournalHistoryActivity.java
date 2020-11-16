@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,8 +51,8 @@ public class JournalHistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journal_history);
-        //backDE.findViewById(R.id.btnBacktoDE);
-        //newEntry.findViewById(R.id.btnNewEntry);
+        backDE =findViewById(R.id.btnBacktoEnt);
+        newEntry = findViewById(R.id.btnNewEntry);
         list = findViewById(R.id.listView);
 
         db = new DatabaseHelper(this);
@@ -84,12 +85,23 @@ public class JournalHistoryActivity extends AppCompatActivity {
 
         //initRecyclerView();
 
-/*        newEntry.setOnClickListener(new View.OnClickListener() {
+           newEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(JournalHistoryActivity.this, DailySymptomsActivity.class);
+                startActivity(intent);
+                finish();
             }
-        });*/
+        });
+
+        backDE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(JournalHistoryActivity.this, DailyEntryActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 
