@@ -9,10 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".JournalHistoryActivity"></activity>
         <activity android:name=".DailySymptomsActivity" />
         <activity android:name=".Predicteds" />
         <activity android:name=".toContinueActivity" />
+
+        <activity android:name=".PhysicianRegistration"></activity>
+        <activity android:name=".PhysicianInformation" />
+        <activity android:name=".InformationActivity" />
+
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".DailyEntryActivity" />
         <activity android:name=".ChartActivity" />

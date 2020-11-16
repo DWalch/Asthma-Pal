@@ -1,3 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Test</string>
+    <string name="app_name">Asthma Pal</string>
+    <string name="title_activity_information">info</string>
+    <string name="Email">Email</string>
+    <string name="country">Country</string>
+    <string name="LN">Last Name</string>
+    <string name="FN">First Name</string>
+    <string name="Phone_num">Phone Number</string>
+    <string name="placeholder">Placeholder</string>
+
+    <string-array name="country_array">
+        <item>Country</item>
+        <item>Azerbaijan</item>
+        <item>Bermuda</item>
+        <item>Canada</item>
+        <item>Denmark</item>
+        <item>Germany</item>
+        <item>United States of America</item>
+        <item>Sweden</item>
+        <item>Norway</item>
+    </string-array>
 </resources>

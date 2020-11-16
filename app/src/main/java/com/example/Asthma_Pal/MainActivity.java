@@ -10,6 +10,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+
     private Button settings, journal, graph, meds;
     public static Activity MA;
     public static boolean active;
@@ -27,10 +28,15 @@ public class MainActivity extends AppCompatActivity {
         active = false;
     }
 
+    private Button Logout, PersonalInformation, Journal, Chart, Medication, Settings;
+    public static Activity RA;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+
         journal = findViewById(R.id.btnViewJournal);
         graph = findViewById(R.id.btnViewChart);
         MA = this;
@@ -52,7 +58,34 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //create variables for all of the buttons to use with onclick listeners
+        RA = this;
+        Logout = (Button)findViewById(R.id.btnLogOut);
+        PersonalInformation = (Button)findViewById(R.id.btnViewInformation);
+        Journal = (Button)findViewById(R.id.btnViewJournal);
+        Chart = (Button)findViewById(R.id.btnViewChart);
+        Medication = (Button)findViewById(R.id.btnViewMeds);
+        Settings = (Button)findViewById(R.id.btnSettings);
 
+        //on click listener for the logout button, for now it just sends user to log-in page
+        //IMPLEMENT: logout of firebase eventually
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent logout = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(logout);
+            }
+        });
+
+        //on click listener for user to go to their personal information page
+        PersonalInformation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent personalInfo = new Intent(MainActivity.this, InformationActivity.class);
+                startActivity(personalInfo);
+            }
+        });
 
     }
+
 }
