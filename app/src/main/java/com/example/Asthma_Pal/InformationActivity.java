@@ -45,7 +45,7 @@ public class InformationActivity extends AppCompatActivity {
         textViewEmail = findViewById(R.id.txtEmail);
 
 
-        phonenum = mPreferences.getInt("com.example.Asthma_Pal.phone", 0);
+        textViewPhone.setText(mPreferences.getString("com.example.Asthma_Pal.phone", defVal));
         textViewCountry.setText(mPreferences.getString("com.example.Asthma_Pal.Country", defVal));
         textViewFirstName.setText(mPreferences.getString("com.example.Asthma_Pal.FirstName", defVal));
         textViewLastName.setText(mPreferences.getString("com.example.Asthma_Pal.LastName", defVal));
