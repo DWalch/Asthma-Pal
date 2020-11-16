@@ -24,6 +24,7 @@ import java.io.File;
 
 public class LoginActivity extends AppCompatActivity {
 
+    //Declare key variable
     private EditText Username, Password;
     private Button Login;
     private TextView Register;
@@ -35,22 +36,29 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //Connect to database
         LoginDatabase = FirebaseAuth.getInstance();
 
+        //See if a User has already signed into the app
         FirebaseUser user = LoginDatabase.getCurrentUser();
 
-        /*if (user != null) {
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);;
+        //If a user is already signed in then auto sign in
+        if (user != null) {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
-        }*/
+        }
 
+        // Reference to  this activity so that we can close inside other activities
         RA = this;
+
+        //Initialize Variables to the components displayed on the activity
         Username = (EditText)findViewById(R.id.etUsername);
         Password = (EditText)findViewById(R.id.etPassword);
         Login = (Button)findViewById(R.id.btnLogin);
         Register = findViewById(R.id.tvRegister);
 
+        //Listen for click on button
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +66,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        //Listen for click on text to take to registration
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,11 +78,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private void validate(String enterUser, String enterPass){
 
+        //Pull data from firebase and confirm that the credentials are correct then login or cancel
         LoginDatabase.signInWithEmailAndPassword(enterUser, enterPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);;
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 }

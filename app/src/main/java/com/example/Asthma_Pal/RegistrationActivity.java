@@ -28,7 +28,10 @@ import java.io.IOException;
 
 public class RegistrationActivity extends AppCompatActivity {
 
+
+    //Initialize key variables
     private EditText Email, Password, ConPassword, FirstName, LastName, Phone;
+
     private Button Register;
     private TextView Return;
     private FirebaseAuth UserAuth;
@@ -44,8 +47,10 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
+        //Assign database
         UserAuth = FirebaseAuth.getInstance();
 
+        //Assign key variables to views within activity
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
 
         Password = findViewById(R.id.etPassword);
@@ -59,10 +64,14 @@ public class RegistrationActivity extends AppCompatActivity {
         Phone = findViewById(R.id.etPhone);
 
 
+        //Listen for a click on the register button
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Make sure that fields are all utilized and passwords match by calling validate
                 if(validate()){
+                    //Remove spaces from information
                    String userPass = Password.getText().toString().trim();
                    String userEmail = Email.getText().toString().trim();
                    String userName = FirstName.getText().toString().trim();
@@ -75,6 +84,7 @@ public class RegistrationActivity extends AppCompatActivity {
                    mPreferences.edit().putString("com.example.Asthma_Pal.Country", country).apply();
                    mPreferences.edit().putInt("com.example.Asthma_Pal.Phone", userPhone);
 
+                   //Add new user to the database
                    UserAuth.createUserWithEmailAndPassword(userEmail, userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                        @Override
                        public void onComplete(@NonNull Task<AuthResult> task) {
@@ -92,6 +102,7 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
+        //On click listener on text to allow the user to return to login
         Return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
