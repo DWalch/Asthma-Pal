@@ -3,7 +3,9 @@ package com.example.Asthma_Pal;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +30,8 @@ public class ChartActivity extends AppCompatActivity {
     private Button update, back;
     private EditText Yvalue;
     private int clickNumber;
+    DatabaseHelper2 db;
+    private ArrayList<Double> mPeak, mDate;
 
 
     @Override
@@ -38,10 +42,12 @@ public class ChartActivity extends AppCompatActivity {
         graphview = (GraphView) findViewById(R.id.graph);
         update = findViewById(R.id.btnAddtoGraph);
         Yvalue = findViewById(R.id.etYvalue);
-        graphValues = new double[1][2];
         activateScroll();
         clickNumber = 0;
         back = findViewById(R.id.btnBackToMenu);
+        series = new LineGraphSeries<>();
+        mPeak = new ArrayList<>();
+        mDate = new ArrayList<>();
 
         graphview.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter()
         {
@@ -59,9 +65,22 @@ public class ChartActivity extends AppCompatActivity {
         graphview.getGridLabelRenderer().setNumHorizontalLabels(3);
 
 
+        db = new DatabaseHelper2(this);
+        Cursor data = db.getListContents();
 
 
+        if(data.getCount() == 0){
+        }
+        else {
+            while (data.moveToNext()) {
+                mDate.add(data.getDouble(0));
+                mPeak.add(data.getDouble(1));
+            }
 
+            for (int i = 0; i < mDate.size(); i++) {
+                series.appendData(new DataPoint(mDate.get(i), mPeak.get(i)),true, 1000);
+            }
+        }
         init();
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -85,38 +104,18 @@ public class ChartActivity extends AppCompatActivity {
     }
 
     private void init(){
-        series = new LineGraphSeries<>();
 
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!Yvalue.getText().toString().equals("")){
                     double y = Double.parseDouble(Yvalue.getText().toString());
-                    clickNumber++;
-
-
-                    double[][] temp = new double[graphValues.length+1][2];
-                    for(int i = 0; i <= graphValues.length; i++){
-                        if(i == graphValues.length){
-                            temp[i][0] = clickNumber;//new Date().getTime();
-                            temp[i][1] = y;
-                        }
-                        else{
-                            temp[i][0] = graphValues[i][0];
-                            temp[i][1] = graphValues[i][1];
-                        }
-
-                    }
-                    graphValues = temp;
-
-
-                    //for(int i = 0; i < graphValues.length; i++) {
-                      //  double xval = graphValues[i][0];
-                       // double yval = graphValues[i][1];
-                        series.appendData(new DataPoint(new Date().getTime(), y), true, 1000);
-                    //}
-
+                    long xdate = new Date().getTime();
+                    Toast.makeText(ChartActivity.this, ""+y, Toast.LENGTH_SHORT).show();
+                    DataPoint data = new DataPoint(xdate, y);
+                    series.appendData(data, true, 1000);
                     graphview.addSeries(series);
+                    addData(xdate, y);
                 }
                 else
                     Toast.makeText(ChartActivity.this, "Please Enter a value", Toast.LENGTH_SHORT).show();
@@ -135,7 +134,8 @@ public class ChartActivity extends AppCompatActivity {
         graphview.getViewport().setScrollableY(true);
     }
 
-
-
+    public void addData(double date, double peak) {
+        db.insertData(date, peak);
+    }
 
 }
