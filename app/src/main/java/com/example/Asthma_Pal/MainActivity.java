@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private Button settings, journal, graph, meds;
     public static Activity MA;
     public static boolean active;
+    DatabaseHelper db;
 
     @Override
     protected void onStart() {
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         journal = findViewById(R.id.btnViewJournal);
         graph = findViewById(R.id.btnViewChart);
         MA = this;
+        db = new DatabaseHelper(this);
 
         journal.setOnClickListener(new View.OnClickListener() {
             @Override

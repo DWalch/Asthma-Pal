@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".JournalHistoryActivity"></activity>
         <activity android:name=".DailySymptomsActivity" />
         <activity android:name=".Predicteds" />
         <activity android:name=".toContinueActivity" />

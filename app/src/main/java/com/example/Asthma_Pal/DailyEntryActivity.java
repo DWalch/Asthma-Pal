@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class DailyEntryActivity extends AppCompatActivity {
 
-    private Button chart, test, home;
+    private Button chart, test, home, entries;
     public static Activity DA;
 
     @Override
@@ -22,6 +22,7 @@ public class DailyEntryActivity extends AppCompatActivity {
         chart =  findViewById(R.id.btnGraphs);
         test = findViewById(R.id.btnJournalEntry);
         home = findViewById(R.id.btnBack);
+        entries = findViewById(R.id.btnJournalHistory);
         DA = this;
 
 
@@ -43,10 +44,16 @@ public class DailyEntryActivity extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DailyEntryActivity.this, MainActivity.class);
-                startActivity(intent);
-                MainActivity.MA.finish();
-                finish();
+                if(MainActivity.active) {
+                    Intent intent = new Intent(DailyEntryActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    MainActivity.MA.finish();
+                    finish();
+                }else {
+                    Intent intent = new Intent(DailyEntryActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
 
@@ -60,6 +67,21 @@ public class DailyEntryActivity extends AppCompatActivity {
                 }
                 else{
                     Intent intent = new Intent(DailyEntryActivity.this, ChartActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        entries.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(MainActivity.active) {
+                    Intent intent = new Intent(DailyEntryActivity.this, JournalHistoryActivity.class);
+                    startActivity(intent);
+                    MainActivity.MA.finish();
+                }
+                else{
+                    Intent intent = new Intent(DailyEntryActivity.this, JournalHistoryActivity.class);
                     startActivity(intent);
                 }
             }
