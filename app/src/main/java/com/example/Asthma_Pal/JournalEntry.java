@@ -9,12 +9,13 @@ public class JournalEntry {
     private String sleep;
     private String excercise;
     private String meds;
+    private String result;
 
-    public JournalEntry(String date, String cough, String wheeze, String cjhest, String sleep, String excercise, String meds) {
+    public JournalEntry(String date, String cough, String wheeze, String chest, String sleep, String excercise, String meds) {
         this.date = date;
         this.cough = cough;
         this.wheeze = wheeze;
-        this.chest = cjhest;
+        this.chest = chest;
         this.sleep = sleep;
         this.excercise = excercise;
         this.meds = meds;
@@ -74,5 +75,9 @@ public class JournalEntry {
 
     public void setMeds(String meds) {
         this.meds = meds;
+    }
+
+    public String print(){
+        return result = date + " " +  cough + " " + wheeze + " " +chest + " " + sleep + " " + excercise + " " + meds;
     }
 }

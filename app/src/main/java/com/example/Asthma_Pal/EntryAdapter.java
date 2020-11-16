@@ -1,7 +1,7 @@
 package com.example.Asthma_Pal;
 
-import android.content.ContentValues;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class EntryAdapter extends ArrayAdapter<JournalEntry> {
 
+    private static final String TAG = "Adapter";
     private Context mContext;
     private int mResource;
 
@@ -28,6 +28,7 @@ public class EntryAdapter extends ArrayAdapter<JournalEntry> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
         String Date = getItem(position).getDate();
         String Cough = getItem(position).getCough();
         String Wheeze = getItem(position).getWheeze();
@@ -42,20 +43,22 @@ public class EntryAdapter extends ArrayAdapter<JournalEntry> {
         convertView = inflater.inflate(mResource, parent, false);
 
         TextView Tdate = (TextView) convertView.findViewById(R.id.tvDate);
-        TextView Tcough = (TextView) convertView.findViewById(R.id.tvCough);
-        TextView Twheeze =(TextView) convertView.findViewById(R.id.tvWheeze);
-        TextView Tchest = (TextView) convertView.findViewById(R.id.tvChest);
-        TextView Tsleep = (TextView) convertView.findViewById(R.id.tvSleep);
-        TextView Texercise = (TextView) convertView.findViewById(R.id.tvExercise);
-        TextView Tmeds = (TextView) convertView.findViewById(R.id.tvMeds);
+        TextView Tcough = (TextView) convertView.findViewById(R.id.tvCoughing);
+        TextView Twheeze =(TextView) convertView.findViewById(R.id.tvWheezing);
+        TextView Tchest = (TextView) convertView.findViewById(R.id.tvTightChested);
+        TextView Tsleep = (TextView) convertView.findViewById(R.id.tvSleepIssues);
+        TextView Texercise = (TextView) convertView.findViewById(R.id.tvStoppedExercising);
+        TextView Tmeds = (TextView) convertView.findViewById(R.id.tvUsedMeds);
 
-        Tdate.setText(Date);
-        Tcough.setText(Cough);
-        Twheeze.setText(Wheeze);
-        Tsleep.setText(Sleep);
-        Tchest.setText(Chest);
-        Texercise.setText(Exercise);
-        Tmeds.setText(Meds);
+        Log.d(TAG, entry.print());
+
+        Tdate.setText(entry.getDate());
+        Tcough.setText(entry.getCough());
+        Twheeze.setText(entry.getWheeze());
+        Tsleep.setText(entry.getSleep());
+        Tchest.setText(entry.getChest());
+        Texercise.setText(entry.getExcercise());
+        Tmeds.setText(entry.getMeds());
 
         return convertView;
     }
