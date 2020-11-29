@@ -48,22 +48,22 @@ public class DailySymptomsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 coughsel = findViewById(cough.getCheckedChipId());
-                strcoughsel = coughsel.getText().toString();
                 wheezesel = findViewById(wheeze.getCheckedChipId());
-                strwheezesel = wheezesel.getText().toString();
                 chestsel = findViewById(chest.getCheckedChipId());
-                strchestsel = chestsel.getText().toString();
                 sleepsel = findViewById(sleep.getCheckedChipId());
-                strsleepsel = sleepsel.getText().toString();
                 exercisesel = findViewById(exercise.getCheckedChipId());
-                strexercisesel = exercisesel.getText().toString();
                 medssel = findViewById(meds.getCheckedChipId());
-                strmedssel = medssel.getText().toString();
 
-                if(strcoughsel.length() == 0 || strwheezesel.length() == 0  || strchestsel.length() == 0  || strsleepsel.length() == 0  || strexercisesel.length() == 0  || strmedssel.length() == 0 ){
+                if(strcoughsel == null || wheezesel == null || chestsel == null || sleepsel == null || exercisesel == null || medssel == null)
                     Toast.makeText(DailySymptomsActivity.this, "Please make sure all fields are\nfilled before continuing ", Toast.LENGTH_SHORT).show();
-                }
                 else{
+                    strcoughsel = coughsel.getText().toString();
+                    strwheezesel = wheezesel.getText().toString();
+                    strchestsel = chestsel.getText().toString();
+                    strsleepsel = sleepsel.getText().toString();
+                    strexercisesel = exercisesel.getText().toString();
+                    strmedssel = medssel.getText().toString();
+
                     strDate = sdf.format(new Date().getTime());
                     addData(strDate, strcoughsel, strwheezesel, strchestsel, strsleepsel, strexercisesel, strmedssel);
                     Intent intent = new Intent(DailySymptomsActivity.this, JournalHistoryActivity.class);
