@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -15,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     public static Activity MA;
     public static boolean active;
     DatabaseHelper db;
+    private FirebaseAuth LoginDatabase;
 
     @Override
     protected void onStart() {
@@ -41,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
         graph = findViewById(R.id.btnViewChart);
         MA = this;
         db = new DatabaseHelper(this);
+
+        //Connect to database
+        LoginDatabase = FirebaseAuth.getInstance();
+
+        //See if a User has already signed into the app
+        FirebaseUser user = LoginDatabase.getCurrentUser();
 
         journal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +83,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent logout = new Intent(MainActivity.this, LoginActivity.class);
+                FirebaseAuth.getInstance().signOut();
                 startActivity(logout);
+                finish();
             }
         });
 
